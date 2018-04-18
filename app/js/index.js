@@ -3,21 +3,18 @@ import '../less/index.less';
 import { createStore } from 'redux';
 import reducer from './reducers/counter';
 const store = createStore(reducer);
-store.subscribe(() => { console.log('state', store.getState()) });
+
+import {oUN,oIN} from './actions/index'
 
 const render = () => {
     ReactDom.render(
         <App
             value={store.getState()}
             oUn={()=>{
-                store.dispatch({
-                    type: 'UN'
-                })
+                store.dispatch(oUN())
             }}
             oIn={()=>{
-                store.dispatch({
-                    type: 'IN'
-                })
+                store.dispatch(oIN())
             }}
         />,
         document.getElementById('root')
