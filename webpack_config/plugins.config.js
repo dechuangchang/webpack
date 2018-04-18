@@ -8,6 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const pluginsConfig = [
     new webpack.ProvidePlugin({
         $:'jquery',
+        axios:'axios',
         React:'react',
         ReactDom:'react-dom'
     }),

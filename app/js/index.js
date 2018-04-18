@@ -1,15 +1,19 @@
 import App from './index/main.js';
 import '../less/index.less';
-import { createStore } from 'redux';
-import rootReducer from './reducers/index';
+import { createStore, applyMiddleware } from 'redux';
+
+
 import { Provider } from 'react-redux';
-const store = createStore(rootReducer);
+
+import configureStore from './store/configureStore';
+
+const store = configureStore();
 
 
 
 ReactDom.render(
     <Provider store={store}>
-        <App/>
+        <App />
     </Provider>,
     document.getElementById('root')
 )

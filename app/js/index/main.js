@@ -1,13 +1,27 @@
 import '../../less/index.less';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { oUN, oIN } from '../actions/index'
+import * as actions from '../actions/index';
+import User from '../components/User';
+const mapStateToProps = (state, ownProps) => {
+    return {
+        num: state.counter
+    }
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
+
+    return bindActionCreators(actions,dispatch)
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
+
+
 class App extends React.Component {
     constructor(props) {
         super(props)
     }
     componentDidMount() {
-
+        
     }
     render() {
         console.log(this.props)
@@ -18,17 +32,10 @@ class App extends React.Component {
                 <div>{this.props.num}</div>
                 <button onClick={e => oIN('oIN')}>in</button>
                 <button onClick={e => oUN('oUN')}>un</button>
+                <br/>
+                <User/>
             </div>
         )
     }
 }
-const mapStateToProps = (state, ownProps) => {
-    return {
-        num: state.counter
-    }
-}
-// const mapDispatchToProps = (dispatch, ownProps) => {
-
-//     return bindActionCreators({oUN, oIN},dispatch)
-// }
-export default connect(mapStateToProps, {oUN, oIN})(App)
+export default App
