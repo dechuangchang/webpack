@@ -32,7 +32,18 @@ module.exports = {
         host: apiConfig.host, //ip
         compress: true, // 服务端压缩
         port: apiConfig.port // 端口
-    }
+    },
+    optimization:{
+        splitChunks:{
+            cacheGroups:{
+                vendor:{ 
+                    chunks:'all', 
+                    name:'vendor',
+                    enforce:true  
+                }
+            }
+        }
+    }   
     
 
 }

@@ -7,22 +7,29 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const pluginsConfig = [
     new webpack.ProvidePlugin({
-        $:'jquery'
+        $:'jquery',
+        React:'react',
+        ReactDom:'react-dom'
     }),
     new HtmlWebpackPlugin({
-        minify: {
-            removeAttributeQuotes: true
-        },
-        hash: true,
-        filename: 'index.html',
-        chunks: ['index'],
-        template: './app/index.html'
+        filename:'index.html',
+        template: './app/index.html',
+        chunks : ['vendor','index']
+    }),
+    new HtmlWebpackPlugin({
+        filename:'admin.html',
+        template: './app/admin.html',
+        chunks : ['vendor','admin']
     }),
     new ExtractTextPlugin('./css/[name][hash].css'),
     new CopyWebpackPlugin([{
         from:path.resolve(__dirname,'../app/static'),
         to:path.resolve(__dirname,'../output/static')
-    }])
+    },
+    {
+        from:path.resolve(__dirname,'../app/iconfont'),
+        to:path.resolve(__dirname,'../output/iconfont')
+    }]),
 ];
 
 module.exports = pluginsConfig;

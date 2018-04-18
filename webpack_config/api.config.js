@@ -9,9 +9,11 @@ if(process.env.npm_lifecycle_script.indexOf('development')>1){
 }
 
 const apiConfig = {
-    devtool: type == 'production' ? 'eval':'source-map',
+    devtool: type == 'production' ? 'none':'source-map',
     entry: {
-        index: './app/js/index.js'
+        vendor: ['jquery','react','react-dom'],
+        index: './app/js/index.js',
+        admin: './app/js/admin.js'
         
     },
     outputFilename: type == 'production' ? './js/[name][hash].min.js':'./js/[name].js',
