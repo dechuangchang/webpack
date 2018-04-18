@@ -1,11 +1,14 @@
 import {IN,UN} from '../constants/index';
-export const oIN = ()=>{
+export const oIN = (otype)=>{
+    // console.log(otype)
     return {
-        type:IN
+        type:IN,
+        otype
     }
 }
-export const oUN = ()=>{
+export const oUN = (otype)=>{
     return {
-        type:UN
+        type:UN,
+        otype
     }
 }
