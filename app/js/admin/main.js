@@ -1,5 +1,3 @@
-// import React, { Component } from 'react';
-// import ReactDom from 'react-dom';
 import '../../less/index.less';
 import src from '../../img/1.jpg';
 class App extends React.Component {
@@ -12,7 +10,6 @@ class App extends React.Component {
         })
     }
     render() {
-        console.log(1)
         return (
             <div>
                 <div id='jk'>admin</div>
