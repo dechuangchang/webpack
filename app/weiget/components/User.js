@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {getUser} from '../actions/index';
+import {getUser} from '../../js/actions/index';
+import { DatePicker } from 'antd';
 const mapStateToProps = (state, ownProps) => {
-    console.log(state)
     return {
         data: state.user
     }
@@ -30,6 +30,7 @@ class User extends React.Component {
             <div>
                 <p>{data.content}</p>
                 <button onClick={getUser}>getuser</button>
+                <DatePicker />
             </div>
         )
     }

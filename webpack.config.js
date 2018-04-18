@@ -37,6 +37,7 @@ module.exports = {
         splitChunks:{
             cacheGroups:{
                 vendor:{ 
+                    test: /node_modules\/(.*)\.js/,
                     chunks:'all', 
                     name:'vendor',
                     enforce:true  

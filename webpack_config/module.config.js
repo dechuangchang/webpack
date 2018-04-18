@@ -55,10 +55,13 @@ const moduleConfigDev = {
 const moduleConfigProd = { 
     rules: [
         {
-            test: /\.css$/,
+            test: /^((?!iconfont).)*.css$/,
             use: ExtractTextPlugin.extract({
                 use: [{
-                    loader: 'css-loader'
+                    loader: 'css-loader',
+                    options:{
+                        minimize: true //css压缩
+                    }
                 }, {
                     loader: 'postcss-loader'
                 }],
@@ -67,10 +70,13 @@ const moduleConfigProd = {
             })
         },
         {
-            test: /\.less$/,
+            test: /less\/(.*)\.less/,
             use: ExtractTextPlugin.extract({
                 use: [{
-                    loader: 'css-loader'
+                    loader: 'css-loader',
+                    options:{
+                        minimize: true //css压缩
+                    }
                 }, {
                     loader: 'postcss-loader'
                 }, {

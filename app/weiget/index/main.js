@@ -1,7 +1,7 @@
 import '../../less/index.less';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from '../actions/index';
+import * as actions from '../../js/actions/index';
 import User from '../components/User';
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -24,7 +24,6 @@ class App extends React.Component {
         
     }
     render() {
-        console.log(this.props)
         let { oIN, oUN } = this.props
         return (
             <div>

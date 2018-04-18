@@ -1,7 +1,6 @@
 import { IN, UN, GETUSER } from '../constants/index';
 
 export const oIN = (otype) => {
-    // console.log(otype)
     return dispatch => {
         setTimeout(() => {
             dispatch({
@@ -19,6 +18,10 @@ export const oUN = (otype) => {
 }
 
 export const getUser = () => {
+    return {
+        type:GETUSER,
+        payload: axios.get("https://randomuser.me/api/")
+    }
     // return dispatch => (
     //     dispatch({
     //         type:GETUSER,
@@ -39,8 +42,5 @@ export const getUser = () => {
     //         })
     //     })
     // )
-    return {
-        type:GETUSER,
-        payload: axios.get("https://randomuser.me/api/")
-    }
+    
 }
