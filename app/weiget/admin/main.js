@@ -1,23 +1,31 @@
 import '../../less/index.less';
-import src from '../../img/1.jpg';
+import {
+    HashRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom';
+import Home from './home/main.js';
+import Router1 from './router1/main.js';
+import Router2 from './router2/main.js'
 class App extends React.Component {
     constructor(props) {
         super(props)
     }
-    componentDidMount(){
-        $('#jk').css({
-            color:'red'
-        })
+    componentDidMount() {
+
     }
     render() {
         return (
-            <div>
-                <div id='jk'>admin</div>
-                <i className="iconfont icon-customs-clearance"></i>
-                00  00 00
-                <div className='jpg row'></div>
-               <img style={{width:'100px'}} src={src} /> 
-            </div>
+            <Router>
+                
+                <div>
+                    <div>hello</div>
+                    
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/router1/:name?" component={Router1} />
+                    <Route exact path="/router2" component={Router2} />
+                </div>
+            </Router>
         )
     }
 }
